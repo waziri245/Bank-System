@@ -20,11 +20,9 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
+    - name: Install pytest
       run: |
-        python -m pip install --upgrade pip
-        pip install -e .
-        pip install pytest  # Only needed if you want to explicitly install pytest
+        python -m pip install pytest
     - name: Run tests
       run: |
         python -m pytest tests/ -v
